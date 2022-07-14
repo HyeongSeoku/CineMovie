@@ -1,0 +1,90 @@
+@use 'src/styles/constants/colors';
+@use 'src/styles/mixins/responsive';
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  .headerContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    color: colors.$WHITE;
+    background-color: colors.$HEADER_BG;
+  }
+
+  .mainContainer {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px 15px;
+    overflow: scroll;
+    background-color: colors.$MAIN_BG;
+  }
+
+  .asideContainer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    width: 180px;
+  }
+
+  .footerContainer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 98%;
+    height: 70px;
+    padding: 12px 10px;
+    margin: 10px 5px;
+    overflow: hidden;
+    color: colors.$WHITE;
+    background-color: colors.$FOOTER_BG;
+    border-radius: 5px 5px 30px 30px;
+    backdrop-filter: blur(3px);
+  }
+}
+
+@include responsive.between(MD, QHD) {
+  .container {
+    .headerContainer {
+      left: 180px;
+      color: colors.$BLACK;
+      background-color: colors.$HEADER_BG;
+      border-bottom: 1px solid colors.$GRAY6;
+    }
+
+    .mainContainer {
+      bottom: 0;
+      left: 180px;
+    }
+
+    .asideContainer {
+      display: block;
+      background-color: colors.$FOOTER_BG;
+    }
+
+    .footerContainer {
+      display: none;
+    }
+  }
+}

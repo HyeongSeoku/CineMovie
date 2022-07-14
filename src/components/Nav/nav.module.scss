@@ -1,0 +1,78 @@
+@use 'src/styles/constants/colors';
+@use 'src/styles/mixins/responsive';
+
+.container {
+  width: 100%;
+
+  .navListContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 70px;
+
+    .navItemContainer {
+      .navIconContainer {
+        width: 25px;
+
+        svg {
+          fill: colors.$GRAY6;
+        }
+      }
+
+      .title {
+        color: colors.$GRAY6;
+      }
+
+      &:hover {
+        .navIconContainer {
+          svg {
+            opacity: 0.7;
+            fill: colors.$WHITE;
+          }
+        }
+
+        .title {
+          color: colors.$WHITE;
+          opacity: 0.7;
+        }
+      }
+
+      .selectedNavItem {
+        color: colors.$WHITE;
+
+        svg {
+          fill: colors.$WHITE;
+        }
+      }
+
+      .title {
+        display: none;
+      }
+    }
+  }
+
+  @include responsive.between(MD, QHD) {
+    .navListContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      padding: 5px 10px;
+
+      .navItemContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        margin: 5px 0;
+
+        .title {
+          display: block;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

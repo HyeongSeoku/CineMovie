@@ -1,4 +1,4 @@
-import { NAV_LIST_DATA } from 'constants/uiData'
+import { ROUTE } from 'constants/uiData'
 import NavItem from './NavItem'
 
 import styles from './nav.module.scss'
@@ -10,7 +10,7 @@ const Nav = () => {
   return (
     <nav className={styles.container}>
       <ul className={styles.navListContainer}>
-        {NAV_LIST_DATA.map((contents) => (
+        {ROUTE.map((contents) => (
           <NavItem key={contents.title} contents={contents} pathname={pathname!} />
         ))}
       </ul>

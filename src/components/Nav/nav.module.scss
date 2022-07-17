@@ -21,6 +21,7 @@
       }
 
       .title {
+        display: none;
         color: colors.$GRAY6;
       }
 
@@ -45,14 +46,10 @@
           fill: colors.$WHITE;
         }
       }
-
-      .title {
-        display: none;
-      }
     }
   }
 
-  @include responsive.between(MD, QHD) {
+  @include responsive.between(SD, QHD) {
     .navListContainer {
       display: flex;
       flex-direction: column;

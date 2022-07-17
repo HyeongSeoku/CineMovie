@@ -1,0 +1,25 @@
+@use 'src/styles/constants/colors';
+
+.container {
+  .tabListContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    .itemContainer {
+      width: 100%;
+
+      .itemContents {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .selectedItem {
+        color: colors.$WHITE;
+      }
+    }
+  }
+}

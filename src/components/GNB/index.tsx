@@ -1,10 +1,11 @@
+import { useLocation } from 'react-use'
+
 import { ROUTE } from 'constants/uiData'
 import NavItem from './NavItem'
 
-import styles from './nav.module.scss'
-import { useLocation } from 'react-use'
+import styles from './gnb.module.scss'
 
-const Nav = () => {
+const GNB = () => {
   const { pathname } = useLocation()
 
   return (
@@ -18,4 +19,4 @@ const Nav = () => {
   )
 }
 
-export default Nav
+export default GNB

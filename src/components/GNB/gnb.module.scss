@@ -29,21 +29,29 @@
         .navIconContainer {
           svg {
             opacity: 0.7;
-            fill: colors.$WHITE;
+            fill: colors.$PRIMARY;
           }
         }
 
         .title {
-          color: colors.$WHITE;
+          color: colors.$BLACK;
           opacity: 0.7;
+
+          :root[color-theme='dark'] & {
+            color: colors.$WHITE;
+          }
         }
       }
 
       .selectedNavItem {
-        color: colors.$WHITE;
+        color: colors.$BLACK;
+
+        :root[color-theme='dark'] & {
+          color: colors.$WHITE;
+        }
 
         svg {
-          fill: colors.$WHITE;
+          fill: colors.$PRIMARY;
         }
       }
     }
@@ -55,7 +63,8 @@
       flex-direction: column;
       justify-content: center;
       width: 100%;
-      padding: 5px 10px;
+      padding: 5px 15px;
+      border-bottom: 1px solid colors.$GRAY6;
 
       .navItemContainer {
         display: flex;

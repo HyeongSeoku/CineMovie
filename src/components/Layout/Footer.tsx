@@ -1,10 +1,10 @@
-import Nav from 'components/Nav'
+import GNB from 'components/GNB'
 import styles from './layout.module.scss'
 
 const Footer = () => {
   return (
     <footer className={styles.footerContainer}>
-      <Nav />
+      <GNB />
     </footer>
   )
 }

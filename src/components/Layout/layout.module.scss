@@ -10,6 +10,17 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  transition: ease-in 250ms background-color, color, text;
+
+  :root[color-theme='dark'] & {
+    background-color: colors.$DARK;
+
+    h1,
+    div,
+    span {
+      color: colors.$WHITE;
+    }
+  }
 
   .headerContainer {
     position: absolute;
@@ -18,11 +29,13 @@
     left: 0;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    width: 100%;
+    align-items: center;
     height: 50px;
-    color: colors.$WHITE;
-    background-color: colors.$HEADER_BG;
+    padding: 5px 10px;
+
+    .logo {
+      margin-right: auto;
+    }
   }
 
   .mainContainer {
@@ -33,7 +46,6 @@
     left: 0;
     padding: 10px 15px;
     overflow: scroll;
-    background-color: colors.$MAIN_BG;
   }
 
   .asideContainer {
@@ -43,6 +55,14 @@
     left: 0;
     display: none;
     width: 180px;
+    transition: ease-in 250ms background-color, color, text;
+
+    .asideText {
+      padding: 10px 15px;
+      margin-top: 50px;
+      font-size: 13px;
+      opacity: 0.6;
+    }
   }
 
   .footerContainer {
@@ -58,18 +78,17 @@
     margin: 10px 5px;
     overflow: hidden;
     color: colors.$WHITE;
-    background-color: colors.$FOOTER_BG;
+    background-color: colors.$DARK_FOOTER;
     border-radius: 5px 5px 30px 30px;
     backdrop-filter: blur(3px);
   }
 }
 
-@include responsive.between(MD, QHD) {
+@include responsive.between(SD, QHD) {
   .container {
     .headerContainer {
+      top: 0;
       left: 180px;
-      color: colors.$BLACK;
-      background-color: colors.$HEADER_BG;
       border-bottom: 1px solid colors.$GRAY6;
     }
 
@@ -80,7 +99,11 @@
 
     .asideContainer {
       display: block;
-      background-color: colors.$FOOTER_BG;
+      background-color: colors.$GRAYD;
+
+      :root[color-theme='dark'] & {
+        background-color: colors.$DARK_FOOTER;
+      }
     }
 
     .footerContainer {

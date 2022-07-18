@@ -11,7 +11,11 @@
   z-index: 5;
   padding: 0 20px;
   overflow: hidden;
-  background-color: colors.$MAIN_BG;
+  background-color: colors.$WHITE;
+
+  :root[color-theme='dark'] & {
+    background-color: colors.$DARK;
+  }
 
   .title {
     width: 100px;

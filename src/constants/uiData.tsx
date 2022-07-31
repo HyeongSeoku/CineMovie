@@ -16,6 +16,4 @@ export const ROUTE = [
 export const TAB = [
   { title: 'Movies', id: 'movie' },
   { title: 'TV Shows', id: 'tv' },
-  { title: 'Anime', id: 'anime' },
-  { title: 'My List', id: 'myList' },
 ]

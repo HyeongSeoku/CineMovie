@@ -1,16 +1,16 @@
 import { TAB } from 'constants/uiData'
-import React, { MouseEventHandler, useState } from 'react'
+import { MouseEventHandler, useState } from 'react'
 import TabItem from './TabItem'
 
 import styles from './tab.module.scss'
-import { TabContents } from './Contents'
+import TabContents from './Contents'
 
 const Tab = () => {
   const [currentTab, setCurrentTab] = useState(TAB[0].id)
 
   const handleTabClick: MouseEventHandler<HTMLElement> = (e) => {
     const { id } = e.currentTarget.dataset
-    setCurrentTab(id!)
+    if (id) setCurrentTab(id)
   }
 
   return (

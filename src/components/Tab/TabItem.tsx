@@ -16,7 +16,7 @@ const TabItem = ({ data, onClick }: { data: IProps; onClick: MouseEventHandler<H
   return (
     <li className={styles.itemContainer}>
       <div
-        className={cx(styles.itemContents, { [styles.selectedItem]: currentTab === id })}
+        className={cx(styles.itemTag, { [styles.selectedItem]: currentTab === id })}
         role='button'
         tabIndex={0}
         onClick={onClick}

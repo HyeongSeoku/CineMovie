@@ -1,35 +1,27 @@
-interface IContents {
-  movie: JSX.Element
-  tv: JSX.Element
-  anime: JSX.Element
-  myList: JSX.Element
+import MovieCardList from 'components/MoiveCard/MovieCardList'
+import { useQuery } from 'react-query'
+import { getPopularVideoList } from 'services/movie'
+import { filterCardListData } from 'utils/filterCardListData'
+import styles from '../tab.module.scss'
 
-  [key: string]: any
+const TabContents = ({ id }: { id: string }) => {
+  const { data: contentData } = useQuery([`#${id}_content_data`, id], () =>
+    getPopularVideoList(id).then((data) => filterCardListData(data))
+  )
+
+  // FIXME: 아래 방식으로 고칠 것
+  // const movieCardListProps = {
+  //   data: { contentData },
+  //   direction: 'row',
+  // }
+
+  return (
+    <div className={styles.contentsContainer}>
+      <ul>
+        <MovieCardList data={contentData!} direction='row' />
+      </ul>
+    </div>
+  )
 }
 
-const MovieContents = () => {
-  return <div>Movie</div>
-}
-
-const TvContents = () => {
-  return <div>TV</div>
-}
-
-const AnimeContents = () => {
-  return <div>Anime</div>
-}
-
-const MyListContents = () => {
-  return <div>MyList</div>
-}
-
-const TAB_CONTENTS: IContents = {
-  movie: <MovieContents />,
-  tv: <TvContents />,
-  anime: <AnimeContents />,
-  myList: <MyListContents />,
-}
-
-export const TabContents = ({ id }: { id: string }) => {
-  return <div>{TAB_CONTENTS[id]}</div>
-}
+export default TabContents

@@ -1,3 +1,5 @@
+import Loader from 'components/Loading'
+import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import Aside from './Aside'
@@ -12,7 +14,9 @@ const Layout = () => {
       <Header />
       <Aside />
       <main className={styles.mainContainer}>
-        <Outlet />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
     </div>

@@ -1,0 +1,113 @@
+@use 'src/styles/constants/colors';
+@use 'src/styles/mixins/responsive';
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transition: ease-in 250ms background-color, color, text;
+
+  :root[color-theme='dark'] & {
+    background-color: colors.$DARK;
+
+    h1,
+    div,
+    span {
+      color: colors.$WHITE;
+    }
+  }
+
+  .headerContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    padding: 5px 10px;
+
+    .logo {
+      margin-right: auto;
+    }
+  }
+
+  .mainContainer {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px 15px;
+    overflow: scroll;
+  }
+
+  .asideContainer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    width: 180px;
+    transition: ease-in 250ms background-color, color, text;
+
+    .asideText {
+      padding: 10px 15px;
+      margin-top: 50px;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+  }
+
+  .footerContainer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 98%;
+    height: 70px;
+    padding: 12px 10px;
+    margin: 10px 5px;
+    overflow: hidden;
+    color: colors.$WHITE;
+    background-color: colors.$DARK_FOOTER;
+    border-radius: 5px 5px 30px 30px;
+    backdrop-filter: blur(3px);
+  }
+}
+
+@include responsive.between(SD, QHD) {
+  .container {
+    .headerContainer {
+      top: 0;
+      left: 180px;
+      border-bottom: 1px solid colors.$GRAY6;
+    }
+
+    .mainContainer {
+      bottom: 0;
+      left: 180px;
+    }
+
+    .asideContainer {
+      display: block;
+      background-color: colors.$GRAYD;
+
+      :root[color-theme='dark'] & {
+        background-color: colors.$DARK_FOOTER;
+      }
+    }
+
+    .footerContainer {
+      display: none;
+    }
+  }
+}

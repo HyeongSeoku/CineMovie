@@ -23,10 +23,22 @@
   }
 }
 
+@keyframes shine {
+  to {
+    background-position: 100% 0, 0 0;
+  }
+}
+
 @mixin fadeInAnimation($duration) {
   animation: fadein $duration;
 }
 
 @mixin rotateAnimation($duration) {
   animation: rotation $duration ease-in-out infinite;
+}
+
+@mixin shineAnimation {
+  background-repeat: repeat-y;
+  background-position: 0 0;
+  animation: shine 1.3s infinite linear;
 }

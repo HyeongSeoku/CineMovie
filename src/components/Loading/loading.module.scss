@@ -1,0 +1,77 @@
+@use 'src/styles/constants/colors';
+@use 'src/styles/mixins/visual';
+@use 'src/styles/mixins/animation';
+
+.loadingContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 25px;
+  left: 0;
+  z-index: 5;
+  padding: 0 20px;
+  overflow: hidden;
+  background-color: colors.$WHITE;
+
+  :root[color-theme='dark'] & {
+    background-color: colors.$DARK;
+  }
+
+  .title {
+    width: 100px;
+    height: 40px;
+    background: linear-gradient(to right, #ffffff00, #ffffff80 50%, #ffffff00 80%), #d3d3d3;
+    background-size: 30px 100px;
+    @include animation.shineAnimation;
+    border-radius: 8px;
+  }
+
+  .listContainer {
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 5px 0;
+    overflow: hidden;
+    white-space: nowrap;
+
+    .loadingCardList {
+      display: flex;
+      flex-direction: row;
+      width: 1500px;
+      margin: 10px 0;
+
+      .loadingCardContainer {
+        height: 120px;
+        padding: 10px 20px;
+        margin-right: 10px;
+        background-color: colors.$WHITE;
+        border-radius: 8px;
+        animation-fill-mode: forwards;
+      }
+
+      .small {
+        width: 150px;
+        height: 200px;
+        background: linear-gradient(to right, #ffffff00, #ffffff80 50%, #ffffff00 80%), #d3d3d3;
+        background-size: 30px 200px;
+        @include animation.shineAnimation;
+      }
+
+      .medium {
+        width: 270px;
+        height: 200px;
+        background: linear-gradient(to right, #ffffff00, #ffffff80 50%, #ffffff00 80%), #d3d3d3;
+        background-size: 30px 500px;
+        @include animation.shineAnimation;
+      }
+
+      .large {
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(to right, #ffffff00, #ffffff80 50%, #ffffff00 80%), #d3d3d3;
+        background-size: 50px 500px;
+        @include animation.shineAnimation;
+      }
+    }
+  }
+}

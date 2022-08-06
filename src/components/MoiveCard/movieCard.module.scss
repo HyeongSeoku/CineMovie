@@ -1,0 +1,48 @@
+@use 'src/styles/constants/colors';
+@use 'src/styles/mixins/responsive';
+
+.container {
+  width: 100%;
+  margin-bottom: 15px;
+  overflow-x: scroll;
+
+  .listContainer {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+
+    .cardContainer {
+      width: 150px;
+      height: 200px;
+      margin-right: 15px;
+      overflow: hidden;
+      border-radius: 8px;
+
+      .poster {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .rowListContainer {
+    flex-direction: row;
+  }
+}
+
+@include responsive.between(SD, QHD) {
+  .listContainer {
+    .cardContainer {
+      width: 180px;
+      height: 230px;
+      margin-right: 15px;
+      overflow: hidden;
+      border-radius: 8px;
+
+      .poster {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

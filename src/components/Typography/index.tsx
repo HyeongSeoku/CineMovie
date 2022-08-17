@@ -1,6 +1,8 @@
-import cx from 'classnames'
+import classNames from 'classnames/bind'
 
 import styles from './index.module.scss'
+
+const cx = classNames.bind(styles)
 
 const typeProps = {
   H1: 'H1',
@@ -21,7 +23,7 @@ export interface TypographyProps {
   tag?: TypographyTag
   bold?: boolean
   weight?: 'regular' | 'medium' | 'bold'
-  extendClass: string
+  extendClass?: string
   children?: React.ReactNode
 }
 
@@ -34,8 +36,9 @@ const Typography = ({
   children,
 }: TypographyProps) => {
   const Component = `${tag}` as keyof JSX.IntrinsicElements
+
   // TODO: CSS classname 처리
-  return <Component className={}>{children}</Component>
+  return <Component className={cx(weight, bold, type)}>{children}</Component>
 }
 
 export default Typography

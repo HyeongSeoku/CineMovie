@@ -8,6 +8,7 @@ import Tab from 'components/Tab'
 import { getPopularVideoList, getTrendVideoListByDay } from 'services/movie'
 
 import styles from './main.module.scss'
+import Typography from 'components/Typography'
 
 const Main = () => {
   const [trend, setTrend] = useState<ICard[]>([])
@@ -37,6 +38,7 @@ const Main = () => {
     <div className={styles.container}>
       <Tab />
       <MovieCardList data={popular} direction='row' />
+      <Typography tag='div'>텍스트</Typography>
     </div>
   )
 }
